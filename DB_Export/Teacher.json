@@ -1,0 +1,5 @@
+{"_id":{"$oid":"61547e37aa58094d92a2fc0e"},"teacherId":{"$numberInt":"6"},"name":"Dorian Schroeder","rating":{"$numberInt":"3"},"__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"6154a81e64d7b503c75feb62"},"teacherId":{"$numberInt":"2"},"name":"Rehaan Hastings","rating":{"$numberInt":"2"},"__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"6154a93e64d7b503c75feb66"},"teacherId":{"$numberInt":"3"},"name":"Rome Simons","rating":{"$numberInt":"4"},"__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"6154a96f64d7b503c75feb68"},"teacherId":{"$numberInt":"5"},"name":"Bret Haynes","rating":{"$numberInt":"3"},"__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"6154a98e64d7b503c75feb6c"},"teacherId":{"$numberInt":"7"},"name":"Simeon Guevara","rating":{"$numberInt":"1"},"__v":{"$numberInt":"0"}}

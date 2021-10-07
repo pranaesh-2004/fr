@@ -1,0 +1,7 @@
+{"_id":{"$oid":"614c0b594ffc459f304ef9f6"},"rollNo":"4","password":"1234","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"614c0e7d4ffc459f304ef9fa"},"rollNo":"5","password":"1234","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"614c0efa4ffc459f304ef9fe"},"rollNo":"6","password":"1234","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"614c77c94cad0485eba8c76a"},"rollNo":"7","password":"1234","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"614ca4daaa357853900b58d5"},"rollNo":"8","password":"1234","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"615419a075e477605f9b1794"},"rollNo":"10","password":"1234","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"615e9fdd86a99c4730264813"},"rollNo":"11","password":"1234","__v":{"$numberInt":"0"}}
