@@ -1,0 +1,10 @@
+@use "sass:math";
+
+$browser-context: 16px; // Default
+
+@function em($pixels, $context: $browser-context) {
+  @if(unitless($pixels)){
+    $pixels: $pixels* 1px;
+  }
+  @return math.div($pixels,$context) *1em;
+}

@@ -1,0 +1,25 @@
+@import '../../../assets/mixins/mixin.scss';
+
+.rating-content-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: em(50px);
+
+    .table-wrapper{
+       table{
+           width: em(1000px);
+
+           th,td{
+               text-align: center;
+           }
+
+           .star-icon{
+               margin: 0 3px;
+           }
+           .activate{
+               color: yellowgreen;
+           }
+       } 
+    }
+}

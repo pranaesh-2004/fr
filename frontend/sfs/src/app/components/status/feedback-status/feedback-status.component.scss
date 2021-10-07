@@ -1,0 +1,29 @@
+@import '../../../../assets/mixins/mixin.scss';
+
+.feedback-status-wrapper{
+    margin-top: em(50px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .table-wrapper{
+       table{
+           width: em(1000px);
+           th,td{
+               text-align: center;
+           }
+
+           th.mat-header-cell:first-of-type, td.mat-cell:first-of-type, td.mat-footer-cell:first-of-type{
+                width: em(180px);
+           }
+
+           .circle-check{
+               color: green;
+           }
+
+           .circle-cross{
+                color: red;
+           }
+       } 
+    }
+}

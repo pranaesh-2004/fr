@@ -1,0 +1,38 @@
+<div class="dialog-wrapper">
+    <h1 mat-dialog-title>Admin Settings</h1>
+    <div mat-dialog-content>
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <p>Please Choose your Action</p>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <table class="table">
+                        <tr>
+                            <td class="col-10">Reset all feedbacks</td>
+                            <td class="col-2">
+                                <button class="action-btn" mat-raised-button (click)="resetValues('resetScore')" title="Reset" color="warn" type="button" [disabled]="isScoreReset">
+                                    <mat-icon>restore</mat-icon>
+                                </button>
+                            </td>
+                        </tr>
+                        <br>
+                        <tr>
+                            <td class="col-10">Reset all records</td>
+                            <td class="col-2">
+                                <button class="action-btn" mat-raised-button (click)="resetValues('resetFeedbacks')" color="warn" title="Reset" type="button" [disabled]="isFeedbackReset">
+                                    <mat-icon>restore</mat-icon>
+                                </button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div mat-dialog-actions>
+        <button class="done-btn" title="Done" mat-raised-button color="primary" (click)="onNoClick()" cdkFocusInitial>Done</button>
+    </div>
+</div>
+
+<mat-spinner *ngIf="loader.showLoader"></mat-spinner>

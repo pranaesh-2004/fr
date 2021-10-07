@@ -1,0 +1,56 @@
+<div class="container-fluid login-wrapper">
+    <mat-card class="example-card">
+        <mat-card-header>
+            <mat-card-title *ngIf="isAdminUser">Admin Login</mat-card-title>
+            <mat-card-title *ngIf="!isAdminUser">Student Login</mat-card-title>
+            <mat-slide-toggle title="Switch to {{!isAdminUser?'Admin':'Student'}}" [checked]="isAdminUser"
+                (change)="toggleUser()"></mat-slide-toggle>
+        </mat-card-header>
+        <form #formData="ngForm" (submit)="login($event)">
+            <ng-container *ngIf="isAdminUser">
+                <mat-card-content>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Name:</mat-label>
+                        <input matInput type="text" [(ngModel)]="adminInfo.name" name="name" required>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Password</mat-label>
+                        <input matInput [type]="pwdType" [(ngModel)]="adminInfo.password" name="password" required>
+                        <button type="button" class="eye-icon" (click)="togglePwdType()"><span><i
+                                    [ngClass]="{'bi bi-eye': pwdType==='password', 'bi bi-eye-slash': pwdType==='text'}"></i></span></button>
+                    </mat-form-field>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button title="Login" class="admin-login" mat-raised-button color="accent"
+                        type="submit">Login</button>
+                </mat-card-actions>
+            </ng-container>
+            <ng-container *ngIf="!isAdminUser">
+                <mat-card-content>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Name:</mat-label>
+                        <input matInput type="text" [(ngModel)]="studentInfo.name" name="name" required>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Roll Number</mat-label>
+                        <input matInput type="number" [(ngModel)]="studentInfo.rollNo" name="rollNo" required>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Password</mat-label>
+                        <input matInput [type]="pwdType" [(ngModel)]="studentInfo.password" name="password" required>
+                        <button type="button" class="eye-icon" (click)="togglePwdType()"><span><i
+                            [ngClass]="{'bi bi-eye': pwdType==='password', 'bi bi-eye-slash': pwdType==='text'}"></i></span></button>
+                    </mat-form-field>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button title="Login" mat-raised-button color="primary" type="submit">Login</button>
+                    <button title="Clear" mat-raised-button color="primary" type="reset">Clear</button>
+                    <button title="Goto Registration" mat-raised-button color="warn" class="register"
+                        (click)="openDialog()" type="button">Goto Registration</button>
+                </mat-card-actions>
+            </ng-container>
+        </form>
+    </mat-card>
+
+    <mat-spinner *ngIf="loader.showLoader"></mat-spinner>
+</div>

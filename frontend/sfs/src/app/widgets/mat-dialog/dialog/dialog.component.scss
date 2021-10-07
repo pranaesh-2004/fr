@@ -1,0 +1,10 @@
+@import '../../../../assets/mixins/mixin.scss';
+
+.dialog-wrapper{
+    width: em(400px);
+    height: em(400px);
+
+    mat-form-field{
+        width: em(375px);
+    }
+}

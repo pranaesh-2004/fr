@@ -1,0 +1,47 @@
+@import '../../../assets/mixins/mixin.scss';
+
+.wrapper{
+    height: 100%;
+    padding: em(10px);
+
+    .content-wrapper{
+        background-color: #fff;
+        height: 100%;
+        padding: em(10px);
+
+        .header-wrapper{
+            text-align: center;
+        }
+
+        .form-wrapper{
+            padding: em(20px) em(40px);
+            display: grid;
+            justify-content: center;
+            align-items: center;
+
+            .teacher-list{
+                float: right;
+                max-width: em(350px);
+                width: em(350px);
+            }
+
+            .form-ctrl-wrapper{
+                margin: em(5px) 0;
+                .questions{
+                    margin: em(20px) 0;
+                }
+                mat-radio-group{
+                    margin: em(5px) 0;
+
+                    mat-radio-button{
+                        margin: 0 em(15px);
+                    }
+                }
+            }
+
+            .form-button{
+                margin: 0 em(5px);
+            }
+        }
+    }
+}

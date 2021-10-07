@@ -1,0 +1,16 @@
+@import '../../../../assets/mixins/mixin.scss';
+
+.header-wrapper{
+    position: fixed;
+    left: 90.5%;
+    top: em(10px);
+    max-width: em(180px);
+
+    .user-name{
+        color: #fff;
+        font-size: em(17px);
+        font-family: 'Times New Roman', Times, serif;
+        max-width: em(180px);
+        line-height: em(35px);
+    }
+}

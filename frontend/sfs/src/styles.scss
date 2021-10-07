@@ -1,0 +1,37 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+@import './assets/mixins/mixin.scss';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.my-custom-snackbar
+{
+    margin: 0 !important;
+    position: absolute;
+    right: em(25px);
+    top: em(60px);
+    background-color: #333;
+    color: #fff;
+}
+
+.mat-slide-toggle-bar{
+    box-shadow: 0 0 em(10px) em(2px) blue;
+    background: lightgreen;
+}
+
+.eye-icon{
+    border: none;
+    position: absolute;
+    left: 95%;
+    background: none;
+    font-size: em(18px);
+    top: 0;
+}
+
+.mat-progress-spinner {
+    position: fixed !important;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

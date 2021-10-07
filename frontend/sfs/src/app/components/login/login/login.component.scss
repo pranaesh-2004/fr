@@ -1,0 +1,45 @@
+@import '../../../../assets/mixins/mixin.scss';
+
+.login-wrapper
+{
+    height: 100vh;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    background: #bbdefb no-repeat;
+    .example-card 
+    {
+        width: em(450px);
+        height: em(450px);
+      }
+
+      mat-form-field
+      {
+        width: 100%;
+        margin: em(20px) 0;
+    
+        &:last-child
+        {
+            margin-bottom: em(5px);
+        }
+    }
+
+    mat-slide-toggle
+    {
+        position: absolute;
+        left: 85%;
+        top: em(16px);
+    }
+
+    .register
+    {
+        float: right;
+    }
+
+    .admin-login
+    {
+        float: right;
+        margin-top: em(110px);
+        margin-left: em(20px);
+    }
+}
