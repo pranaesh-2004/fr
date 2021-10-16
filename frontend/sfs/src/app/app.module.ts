@@ -32,6 +32,8 @@ import { FeedbackSubmittedComponent } from './components/feedback-submitted/feed
 import { SettingsComponent } from './components/settings/settings.component';
 import { ResetDialogComponent } from './widgets/mat-dialog/reset-dialog/reset-dialog.component';
 import { HomeComponent } from './components/home/home.component';
+import { AddTeachersComponent } from './add-teachers/add-teachers.component';
+import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,9 @@ import { HomeComponent } from './components/home/home.component';
     FeedbackSubmittedComponent,
     SettingsComponent,
     ResetDialogComponent,
-    HomeComponent
+    HomeComponent,
+    AddTeachersComponent,
+    ConfirmationDialogComponent
   ],
   imports: [
     BrowserModule,

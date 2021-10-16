@@ -1,24 +1,42 @@
 @import '../../../assets/mixins/mixin.scss';
 
-.rating-content-wrapper{
+.rating-content-wrapper
+{
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: em(50px);
 
-    .table-wrapper{
-       table{
+    .table-wrapper
+    {
+       table
+       {
            width: em(1000px);
 
-           th,td{
+           th,td
+           {
                text-align: center;
            }
 
-           .star-icon{
+           .star-icon
+           {
                margin: 0 3px;
            }
-           .activate{
+           .activate
+           {
                color: yellowgreen;
+           }
+           .ratings-container{
+               margin: em(14px) 0;
+           }
+           .trash-icon{
+               border: none;
+               background-color: transparent;
+               margin: em(9px);
+
+               .icon{
+                   color: red;
+               }
            }
        } 
     }

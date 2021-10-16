@@ -1,0 +1,13 @@
+<div class="dialog-wrapper">
+    <h1 mat-dialog-title>Warning</h1>
+    <div mat-dialog-content>
+        <div class="content-wrapper">
+            <p class="fs-4">{{data.warningMsg}}</p>
+        </div>
+    </div>
+
+    <div mat-dialog-actions>
+        <button title="Cancel" mat-raised-button color="primary" (click)="onNoClick()">Cancel</button>
+        <button title="Confirm" mat-raised-button color="warn" [mat-dialog-close]="data" cdkFocusInitial>Confirm</button>
+    </div>
+</div>

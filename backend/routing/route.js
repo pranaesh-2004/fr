@@ -8,7 +8,7 @@ const Teacher = require('../models/teacher');
 
 router.get('/', async (req, res) => {
     try {
-        const students = await Student.find({},{_id:0}).sort({"rollNo":1}).exec();
+        const students = await Student.find({}, { _id: 0 }).sort({ "rollNo": 1 }).exec();
         res.json(students);
     } catch (err) {
         res.send('Error: ', err);
@@ -37,24 +37,24 @@ router.post('/', async (req, res) => {
 });
 
 router.get('/student/:id', async function (req, res) {
-    
-    try{
-        const studentInfo = await Student.find({'rollNo': req.params.id});
+
+    try {
+        const studentInfo = await Student.find({ 'rollNo': req.params.id });
         res.send(studentInfo);
-    }catch(err){
-        res.send({"Error": "Error occured during fetching record!!"});
+    } catch (err) {
+        res.send({ "Error": "Error occured during fetching record!!" });
     }
 });
 
 router.put('/student/:id', async function (req, res) {
     const filter = { "rollNo": parseInt(req.params.id) };
-    try{
+    try {
         const studentInfo = await Student.findOne(filter);
         studentInfo.hasGivenFeedback = true;
         studentInfo.save();
         res.send(studentInfo);
-    }catch(err){
-        res.send({"Error": "Error occured during fetching record!!"});
+    } catch (err) {
+        res.send({ "Error": "Error occured during fetching record!!" });
     }
 });
 
@@ -91,73 +91,86 @@ router.post('/admin/', async (req, res) => {
     }
 });
 
-router.get('/teachers', async (req,res)=>{
-    try{
-        const teacherList = await Teacher.find({},{_id:0}).sort({"teacherId":1}).exec();
+router.get('/teachers', async (req, res) => {
+    try {
+        const teacherList = await Teacher.find({}, { _id: 0 }).sort({ "teacherId": 1 }).exec();
         res.send(teacherList)
-    } catch(err){
-        res.send({'error':'Error occured while fetching teachers data'});
+    } catch (err) {
+        res.send({ 'error': 'Error occured while fetching teachers data' });
     }
 })
 
-router.post('/teacher', async(req,res)=>{
+router.post('/teacher', async (req, res) => {
     const teacher = new Teacher({
         'teacherId': req.body.teacherId,
         'name': req.body.name,
         'rating': req.body.rating
     });
-    try{
+    try {
         await teacher.save();
         res.send({ 'message': 'Teacher data saved successfully' });
-    }catch(err){
-        res.send({'error':'Error occured while saving teachers data'})
+    } catch (err) {
+        res.send({ 'error': 'Error occured while saving teachers data' + JSON.stringify(err) })
     }
 });
 
-router.put('/score/:id', async(req,res) =>{
+router.delete('/teacher/:id', async (req, res) => {
+    try {
+        const id = parseInt(req.params.id);
+        const result = await Teacher.findOneAndDelete({ teacherId: id });
+        if (result)
+            res.send({ 'message': 'Teacher data deleted successfully' });
+        else
+            res.send({ 'error': 'Error occured while deleting teachers data' });
+    } catch (err) {
+        res.send({ 'error': 'Error occured while deleting teachers data' });
+    }
+})
+
+router.put('/score/:id', async (req, res) => {
     const filter = { teacherId: parseInt(req.params.id) };
-    try{
+    try {
         const teacherInfo = await Teacher.findOne(filter);
-        teacherInfo.rating = Math.floor((teacherInfo.rating + req.body.rating)/2);
+        teacherInfo.rating = Math.floor((teacherInfo.rating + req.body.rating) / 2);
         teacherInfo.save();
         res.send(teacherInfo);
-    } catch(err){
+    } catch (err) {
         res.send(err);
     }
 });
 
-router.put('/reset/scores', async(req,res) =>{
-    try{
+router.put('/reset/scores', async (req, res) => {
+    try {
         Teacher.updateMany(
-            { },
+            {},
             { $set: { rating: 0 } },
-            function(err, result) {
-              if (err) {
-                res.send(err);
-              } else {
-                res.send(result);
-              }
+            function (err, result) {
+                if (err) {
+                    res.send(err);
+                } else {
+                    res.send(result);
+                }
             }
-          );
-    } catch(err){
+        );
+    } catch (err) {
         res.send(err);
     }
 });
 
-router.put('/reset/feedback', async(req,res) =>{
-    try{
+router.put('/reset/feedback', async (req, res) => {
+    try {
         Student.updateMany(
-            { },
+            { hasGivenFeedback : true},
             { $set: { hasGivenFeedback: false } },
-            function(err, result) {
-              if (err) {
-                res.send(err);
-              } else {
-                res.send(result);
-              }
+            function (err, result) {
+                if (err) {
+                    throw err;
+                } else {
+                    res.send(result);
+                }
             }
-          );
-    } catch(err){
+        );
+    } catch (err) {
         res.send(err);
     }
 });

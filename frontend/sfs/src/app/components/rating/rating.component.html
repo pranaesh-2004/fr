@@ -6,20 +6,29 @@
                 <td mat-cell *matCellDef="let element"> {{element.teacherId}} </td>
             </ng-container>
 
-            <!-- Weight Column -->
             <ng-container matColumnDef="name">
                 <th mat-header-cell *matHeaderCellDef> Name </th>
                 <td mat-cell *matCellDef="let element"> {{element.name}} </td>
             </ng-container>
 
-            <!-- Symbol Column -->
             <ng-container matColumnDef="rating">
                 <th mat-header-cell *matHeaderCellDef> Overall Rating </th>
                 <td mat-cell *matCellDef="let element">
-                    <span *ngFor="let val of [].constructor(5); let i = index">
-                        <i *ngIf="i < element.rating" class="bi bi-star-fill star-icon activate"></i>
-                        <i *ngIf="i >= element.rating" class="bi bi-star star-icon"></i>
-                    </span>
+                    <div class="row">
+                        <div class="col-10">
+                            <div class="ratings-container">
+                                <span *ngFor="let val of [].constructor(5); let i = index">
+                                    <i *ngIf="i < element.rating" class="bi bi-star-fill star-icon activate"></i>
+                                    <i *ngIf="i >= element.rating" class="bi bi-star star-icon"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <button class="trash-icon" type="button" (click)="openDialog(element.teacherId)">
+                                <mat-icon class="icon">delete</mat-icon>
+                            </button>
+                        </div>
+                    </div>
                 </td>
             </ng-container>
 

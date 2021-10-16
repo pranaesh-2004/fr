@@ -7,11 +7,11 @@
             </div>
             <div class="row">
                 <div class="col-md-12 col-sm-12">
-                    <table class="table">
+                    <table>
                         <tr>
                             <td class="col-10">Reset all feedbacks</td>
                             <td class="col-2">
-                                <button class="action-btn" mat-raised-button (click)="resetValues('resetScore')" title="Reset" color="warn" type="button" [disabled]="isScoreReset">
+                                <button class="action-btn" mat-raised-button (click)="resetValues('resetFeedbacks')" title="Reset" color="warn" type="button" [disabled]="isFeedbackReset">
                                     <mat-icon>restore</mat-icon>
                                 </button>
                             </td>
@@ -20,7 +20,7 @@
                         <tr>
                             <td class="col-10">Reset all records</td>
                             <td class="col-2">
-                                <button class="action-btn" mat-raised-button (click)="resetValues('resetFeedbacks')" color="warn" title="Reset" type="button" [disabled]="isFeedbackReset">
+                                <button class="action-btn" mat-raised-button (click)="resetValues('resetScore')" color="warn" title="Reset" type="button" [disabled]="isScoreReset">
                                     <mat-icon>restore</mat-icon>
                                 </button>
                             </td>

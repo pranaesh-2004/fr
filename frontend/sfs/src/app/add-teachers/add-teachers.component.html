@@ -1,0 +1,32 @@
+<div class="add-teachers-wrapper">
+    <div class="content-wrapper">
+        <div class="action-button-wrapper">
+            <button class="add-teacher-btn" type="button" *ngIf="!isFormVisible" (click)='toggleFormVisibility()' mat-raised-button color="accent">Add Teacher</button>
+            <button class="delete-form-grp" *ngIf="isFormVisible" type="button" (click)='toggleFormVisibility()'><mat-icon>delete</mat-icon></button>
+        </div>
+        <div class="col-md-12 col-sm-12">
+            <div class="form-wrapper" *ngIf="isFormVisible">
+                <form #formData="ngForm" (submit)="getTeacherDetails($event)">
+                    <div class="row">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Teacher ID</mat-label>
+                            <input matInput type="text" [(ngModel)]="teachersInfo.teacherId" name="teacherId" required>
+                        </mat-form-field>
+                    </div>
+                    <div class="row">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Teacher Name</mat-label>
+                            <input matInput type="text" [(ngModel)]="teachersInfo.name" name="name" required>
+                        </mat-form-field>
+                    </div>
+                    <div class="row">
+                        <button class="action-btn" title="Register Teacher" type="submit" color="primary" mat-raised-button cdkFocusInitial>Register</button>
+                        <button class="action-btn" title="Delete Form" type="reset" color="secondary" mat-raised-button>Clear</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <mat-spinner *ngIf="loader.showLoader"></mat-spinner>
+</div>

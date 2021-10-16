@@ -57,7 +57,8 @@ export class ResetDialogComponent implements OnInit {
           exhaustMap(() => this.ss.resetStudentsFeedback(this.baseUrl + 'reset/feedback'))
         ).subscribe((data) => {
           if (data) {
-            this.openSnackBar('Reset  operation successfull', 'close');
+            console.log(data);
+            this.openSnackBar('Reset Students feedback operation successfull', 'close');
             let sessionInfo = JSON.parse(sessionStorage.getItem('user') || '{}')
             if(sessionInfo){
               sessionInfo = {
@@ -68,7 +69,7 @@ export class ResetDialogComponent implements OnInit {
             }
             sessionStorage.setItem('user', JSON.stringify(sessionInfo));
           } else{
-            this.openSnackBar('Reset feedback operation is not successfull', 'close');
+            this.openSnackBar('Reset Students feedback operation is not successfull', 'close');
           }
           let sessionInfo = JSON.parse(sessionStorage.getItem('user') || '{}')
         },

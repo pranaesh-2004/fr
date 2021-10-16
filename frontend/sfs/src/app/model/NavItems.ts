@@ -1,5 +1,9 @@
 export const AdminNavItems = [
     {
+        name: 'Add Teachers',
+        path: './addTeachers'
+    },
+    {
         name: 'Show Rating',
         path: './rating'
     },

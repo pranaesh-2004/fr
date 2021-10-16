@@ -1,0 +1,59 @@
+@import "../../assets/mixins/mixin.scss";
+
+.add-teachers-wrapper{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    padding-top: em(50px);
+
+    .content-wrapper{
+        width: 95vh;
+        height: 80vh;
+        background-color: #fff;
+
+        .action-button-wrapper{
+            position: relative;
+            margin: em(10px) em(20px);
+
+            .add-teacher-btn{
+                position: absolute;
+                float: right;
+                height: em(70px);
+                width: em(200px);
+                font-size: em(20px);
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                margin: 37% 33%;
+            }
+
+            .delete-form-grp{
+                float: right;
+                width: em(45px);
+                height: em(45px);
+                border: 0;
+                background-color: transparent;
+
+                .mat-icon{
+                    color: red;
+                }
+            }
+        }
+
+        .form-wrapper{
+            padding: em(150px) em(50px);
+
+            mat-form-field{
+                margin: em(20px) 0;
+            }
+
+            .action-btn{
+                position: relative;
+                height: em(50px);
+                width: em(100px);
+                margin: em(200px) em(10px) 0 em(10px);
+            }
+        }
+    }
+}
