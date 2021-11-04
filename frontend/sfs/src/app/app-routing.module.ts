@@ -9,6 +9,7 @@ import { PageNotFoundComponent } from './components/pagenotfound/page-not-found/
 import { RatingComponent } from './components/rating/rating.component';
 import { FeedbackStatusComponent } from './components/status/feedback-status/feedback-status.component';
 import { AuthguardService } from './guards/authguard.service';
+import { FormGuardService } from './guards/form-guard.service';
 
 const routes: Routes = [
   {
@@ -31,7 +32,8 @@ const routes: Routes = [
       },
       {
         path: 'form',
-        component: FeedbackFormComponent
+        component: FeedbackFormComponent,
+        canDeactivate: [FormGuardService]
       },
       {
         path: 'rating',

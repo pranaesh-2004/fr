@@ -120,6 +120,7 @@ export class LoginComponent implements OnInit {
           }
         },
         (err)=>{
+          this.loader.showLoader = false;
           this.openSnackBar("Error occurred while authentication", 'close');
         }))
       } else {
@@ -144,6 +145,7 @@ export class LoginComponent implements OnInit {
           }
         },
         (err)=>{
+          this.loader.showLoader = false;
           this.openSnackBar("Error occurred while authentication", 'close');
         }))
       } else {

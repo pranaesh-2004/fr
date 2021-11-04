@@ -3,6 +3,7 @@ import { FormGroup, NgForm } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable, of, Subscription } from 'rxjs';
 import { distinctUntilChanged, map, shareReplay, take } from 'rxjs/operators';
+import { FormGuardService } from 'src/app/guards/form-guard.service';
 import { Students } from 'src/app/model/students';
 import { Teacher } from 'src/app/model/Teacher';
 import { LoaderService } from 'src/app/services/loader.service';
@@ -11,7 +12,7 @@ import { StatusService } from 'src/app/services/status.service';
 @Component({
   selector: 'app-feedback-form',
   templateUrl: './feedback-form.component.html',
-  styleUrls: ['./feedback-form.component.scss']
+  styleUrls: ['./feedback-form.component.scss'],
 })
 
 export class FeedbackFormComponent implements OnInit {
@@ -114,8 +115,8 @@ export class FeedbackFormComponent implements OnInit {
     }
   }
 
-  public onSelectionChange(e: any): void {
-    // console.log(this.feedback.form)
+  public isDoneWithSurvay(): boolean {
+    return this.feedbackSubmitted;
   }
 
   ngOnInit(): void {

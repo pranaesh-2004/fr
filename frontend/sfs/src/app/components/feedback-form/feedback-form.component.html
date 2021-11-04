@@ -17,7 +17,7 @@
                                     <mat-form-field class="teacher-list" appearance="fill">
                                         <mat-label>Please select Teacher's name</mat-label>
                                         <mat-select [(ngModel)]="selectedTeacherId" name="teacher"
-                                            (selectionChange)="onSelectionChange($event)" [disabled]="isFormDisabled" required>
+                                            [disabled]="isFormDisabled" required>
                                             <mat-option *ngFor="let teacher of teachersList$ | async; let i = index"
                                                 [value]="teacher.teacherId" [disabled]="teacher.isSurvayDone">
                                                 {{teacher.name}}
