@@ -12,3 +12,8 @@ version 1.0:-
 ![Home-page-Admin](https://user-images.githubusercontent.com/46490850/137598568-8d0ed535-8aaa-4ffc-9e8b-ed3041d338b8.PNG)
 
 
+Version 2.2:-
+
+![Edit-student-profile](https://user-images.githubusercontent.com/46490850/144742903-b11eeb66-544b-422b-a675-087a073d641c.JPG)
+
+
