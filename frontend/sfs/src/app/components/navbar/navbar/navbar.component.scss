@@ -1,11 +1,12 @@
 @import '../../../../assets/mixins/mixin.scss';
 
 nav{
-    position: sticky;
+    position: fixed;
     width: 100%;
+    top: 0;
 }
 .navbar-brand{
-    margin: 0 em(10px);
+    margin: 0 em(15px);
 }
 
 .navbar-nav{

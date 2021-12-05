@@ -10,6 +10,7 @@ export class PageNotFoundComponent implements OnInit {
 
   constructor(private router: Router) { }
 
+  myContext = {$implicit: 'World', localSk: 'Svet'};
   public goToHome():void{
     this.router.navigateByUrl('home')
   }

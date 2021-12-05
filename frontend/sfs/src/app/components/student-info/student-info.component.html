@@ -1,0 +1,71 @@
+<div class="wrapper">
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="header-wrapper">
+                <h1>Edit Your Profile</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-wrapper">
+                <form [formGroup]="studentForm" (submit)="onSubmit($event)">
+                    <fieldset>
+                        <div class="form-group">
+                            <label for="std_name" class="col-sm-12 col-md-6">Name</label>
+                            <mat-form-field class="col-sm-12 col-md-6" appearance="fill">
+                                <input type="text" id="std_name" formControlName="name" matInput>
+                            </mat-form-field>
+                        </div>
+                        <div class="form-group">
+                            <label for="std_roll" class="col-sm-12 col-md-6">Roll Number</label>
+                            <mat-form-field class="col-sm-12 col-md-6" appearance="fill">
+                                <input type="number" id="std_roll" formControlName="rollNo" matInput>
+                            </mat-form-field>
+                        </div>
+                        <div class="form-group">
+                            <label for="std_branch" class="col-sm-12 col-md-6">Stream</label>
+                            <mat-form-field class="col-sm-12 col-md-6" appearance="fill">
+                                <mat-select formControlName="branch" id="std_class">
+                                    <mat-option value="Mechanical">Mechanical</mat-option>
+                                    <mat-option value="Electrical">Electrical</mat-option>
+                                    <mat-option value="Chemical">Chemical</mat-option>
+                                    <mat-option value="Civil">Civil</mat-option>
+                                    <mat-option value="Computer">Computer</mat-option>
+                                    <mat-option value="Electronics">Electronics</mat-option>
+                                    <mat-option value="Information Technology">Information Technology</mat-option>
+                                    <mat-option value="Production">Production</mat-option>
+                                  </mat-select>
+                            </mat-form-field>  
+                        </div>
+                        <div class="form-group">
+                            <label for="std_class" class="col-sm-12 col-md-6">Class</label>
+                            <mat-form-field class="col-sm-12 col-md-6" appearance="fill">
+                                <mat-select formControlName="cls" id="std_class">
+                                    <mat-option value="SE">Second Year</mat-option>
+                                    <mat-option value="TE">Third Year</mat-option>
+                                    <mat-option value="BE">Fourth Year</mat-option>
+                                  </mat-select>
+                            </mat-form-field>  
+                        </div>
+                        <div class="form-group">
+                            <label for="std_div" class="col-sm-12 col-md-6">Division</label>
+                            <mat-form-field class="col-sm-12 col-md-6" appearance="fill">
+                                <mat-select formControlName="div">
+                                    <mat-option value="A">A</mat-option>
+                                    <mat-option value="B">B</mat-option>
+                                  </mat-select>
+                            </mat-form-field>  
+                        </div>
+                        <div class="action-btn">
+                            <button class="form-button action-btn" color="primary" type="submit"
+                                    mat-raised-button
+                                    [disabled]="!studentForm.valid">Submit</button>                                            
+                            <button class="form-button action-btn" color="secondary" type="button"
+                                    mat-raised-button
+                                    (click)="resetForm()">Reset</button>                                            
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

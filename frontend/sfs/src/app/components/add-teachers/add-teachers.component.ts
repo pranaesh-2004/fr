@@ -2,9 +2,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Subscription } from 'rxjs';
-import { Teacher } from '../model/Teacher';
-import { LoaderService } from '../services/loader.service';
-import { RegisterService } from '../services/register.service';
+import { Teacher } from 'src/app/model/Teacher';
+import { LoaderService } from '../../services/loader.service';
+import { RegisterService } from '../../services/register.service';
 
 
 @Component({

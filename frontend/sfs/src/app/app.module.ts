@@ -32,8 +32,10 @@ import { FeedbackSubmittedComponent } from './components/feedback-submitted/feed
 import { SettingsComponent } from './components/settings/settings.component';
 import { ResetDialogComponent } from './widgets/mat-dialog/reset-dialog/reset-dialog.component';
 import { HomeComponent } from './components/home/home.component';
-import { AddTeachersComponent } from './add-teachers/add-teachers.component';
-import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
+import { AddTeachersComponent } from './components/add-teachers/add-teachers.component';
+import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
+import { StudentInfoComponent } from './components/student-info/student-info.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -52,7 +54,8 @@ import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-
     ResetDialogComponent,
     HomeComponent,
     AddTeachersComponent,
-    ConfirmationDialogComponent
+    ConfirmationDialogComponent,
+    StudentInfoComponent
   ],
   imports: [
     BrowserModule,
@@ -71,9 +74,10 @@ import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-
     MatProgressSpinnerModule,
     MatSelectModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [RegisterService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent, HomeComponent]
 })
 export class AppModule { }

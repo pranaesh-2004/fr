@@ -15,7 +15,11 @@ export const AdminNavItems = [
 
 export const NonAdminNavItem = [
     {
+        name: 'Edit Info',
+        path: './student-info'
+    },
+    {
         name: 'Give Feedback',
         path: './form'
-    },
+    }
 ]
