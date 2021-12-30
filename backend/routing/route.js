@@ -5,6 +5,7 @@ const Student = require('../models/student');
 const Registration = require('../models/resgistration');
 const Admin = require('../models/admin');
 const Teacher = require('../models/teacher');
+const StudentInfo = require('../models/student-info');
 
 router.get('/', async (req, res) => {
     try {
@@ -101,16 +102,25 @@ router.get('/teachers', async (req, res) => {
 })
 
 router.post('/teacher', async (req, res) => {
-    const teacher = new Teacher({
-        'teacherId': req.body.teacherId,
-        'name': req.body.name,
-        'rating': req.body.rating
-    });
     try {
-        await teacher.save();
-        res.send({ 'message': 'Teacher data saved successfully' });
-    } catch (err) {
-        res.send({ 'error': 'Error occured while saving teachers data' + JSON.stringify(err) })
+        const result = await Teacher.findOne({teacherId: req.body.teacherId});
+        if(result){
+            res.send('Teachers record already exists!!');
+        } else {
+            const teacher = new Teacher({
+                'teacherId': req.body.teacherId,
+                'name': req.body.name,
+                'rating': req.body.rating
+            });
+            try {
+                await teacher.save();
+                res.send({ 'message': 'Teacher data saved successfully' });
+            } catch (err) {
+                res.send({ 'error': 'Error occured while saving teachers data' + JSON.stringify(err) })
+            }
+        }
+    } catch(err) {
+        res.send(err);
     }
 });
 
@@ -174,5 +184,39 @@ router.put('/reset/feedback', async (req, res) => {
         res.send(err);
     }
 });
+
+router.put('/student-info', async(req,res)=> {
+    try {
+        const student = await StudentInfo.findOne({rollNo : req.body.rollNo});
+        if(student){
+            student.stream = req.body.stream;
+            student.div = req.body.div;
+            student.cls = req.body.cls;
+            const result = await student.save();
+            res.send(result)
+        } else {
+            const newStudent = new StudentInfo({
+                'name': req.body.name,
+                'rollNo': req.body.rollNo,
+                'div': req.body.div,
+                'cls': req.body.cls,
+                'stream': req.body.stream
+            })
+            const result = await newStudent.save();
+            res.send(result);
+        }
+    } catch(err){
+        res.send(err);
+    }
+})
+
+router.get('/student-info/:id', async(req,res)=> {
+    try {
+        const result = await StudentInfo.find({'rollNo': req.params.id});
+        res.send(result);
+    } catch(err){
+        res.send(err);
+    }
+})
 
 module.exports = router;

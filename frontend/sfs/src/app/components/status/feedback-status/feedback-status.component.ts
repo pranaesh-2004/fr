@@ -32,6 +32,7 @@ export interface PeriodicElement {
 export class FeedbackStatusComponent implements OnInit {
   public displayedColumns: string[] = ['rollNo','name','hasGivenFeedback'];
   public dataSource: any;
+  public searchText: string = '';
   private subs: Array<Subscription> = [];
   private readonly url: string = 'http://localhost:8000/students/';
 

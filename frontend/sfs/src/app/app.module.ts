@@ -36,6 +36,7 @@ import { AddTeachersComponent } from './components/add-teachers/add-teachers.com
 import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
 import { StudentInfoComponent } from './components/student-info/student-info.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     HomeComponent,
     AddTeachersComponent,
     ConfirmationDialogComponent,
-    StudentInfoComponent
+    StudentInfoComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

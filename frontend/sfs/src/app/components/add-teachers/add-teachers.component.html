@@ -20,7 +20,7 @@
                         </mat-form-field>
                     </div>
                     <div class="row">
-                        <button class="action-btn" title="Register Teacher" type="submit" color="primary" mat-raised-button cdkFocusInitial>Register</button>
+                        <button class="action-btn" title="Register Teacher" type="submit" color="primary" [disabled]="!formData.valid" mat-raised-button cdkFocusInitial>Register</button>
                         <button class="action-btn" title="Delete Form" type="reset" color="secondary" mat-raised-button>Clear</button>
                     </div>
                 </form>

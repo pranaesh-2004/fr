@@ -1,6 +1,12 @@
 <div class="feedback-status-wrapper">
+  <div class="search-input-wrapper">
+    <label for="searchText">
+      <mat-icon class="icon">search</mat-icon>
+    </label>
+    <input id="searchText" #search (keyup)="searchText = search.value" type="text" maxlength="20" placeholder="Enter search text">
+  </div>
   <div class="table-wrapper mt-4">
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource | filter:searchText" class="mat-elevation-z8">
 
       <ng-container matColumnDef="rollNo">
         <th mat-header-cell *matHeaderCellDef> Roll Number </th>

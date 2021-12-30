@@ -1,4 +1,4 @@
-@import "../../assets/mixins/mixin.scss";
+@import "../../../assets/mixins/mixin.scss";
 
 .add-teachers-wrapper{
     display: grid;
@@ -25,7 +25,7 @@
                 right: 0;
                 top: 0;
                 bottom: 0;
-                margin: 37% 33%;
+                margin: 37% 29%;
             }
 
             .delete-form-grp{
@@ -52,7 +52,7 @@
                 position: relative;
                 height: em(50px);
                 width: em(100px);
-                margin: em(200px) em(10px) 0 em(10px);
+                margin: em(50px) em(10px) 0 em(10px);
             }
         }
     }

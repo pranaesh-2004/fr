@@ -24,7 +24,7 @@
                         <div class="form-group">
                             <label for="std_branch" class="col-sm-12 col-md-6">Stream</label>
                             <mat-form-field class="col-sm-12 col-md-6" appearance="fill">
-                                <mat-select formControlName="branch" id="std_class">
+                                <mat-select formControlName="stream" id="std_class">
                                     <mat-option value="Mechanical">Mechanical</mat-option>
                                     <mat-option value="Electrical">Electrical</mat-option>
                                     <mat-option value="Chemical">Chemical</mat-option>
@@ -58,7 +58,7 @@
                         <div class="action-btn">
                             <button class="form-button action-btn" color="primary" type="submit"
                                     mat-raised-button
-                                    [disabled]="!studentForm.valid">Submit</button>                                            
+                                    [disabled]="!studentForm?.valid">Submit</button>                                            
                             <button class="form-button action-btn" color="secondary" type="button"
                                     mat-raised-button
                                     (click)="resetForm()">Reset</button>                                            

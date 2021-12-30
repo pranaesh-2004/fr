@@ -21,6 +21,7 @@ export class RatingComponent implements OnInit {
   public displayedColumns: string[] = ['teacherId', 'name', 'rating'];
   public dataSource: any;
   public data: any = {};
+  public searchText: string = '';
   private subs: Array<Subscription> = [];
   private readonly teachersInfoEndPoint: string = 'http://localhost:8000/students/teachers';
   private readonly deleteTeacherEndPoint: string = 'http://localhost:8000/students/teacher/';
