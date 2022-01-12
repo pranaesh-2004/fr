@@ -40,7 +40,7 @@
                                                 <div class="row">
                                                     <mat-radio-group [(ngModel)]="selections[i]" name="selection{{i}}"
                                                         [required]="true">
-                                                        <mat-radio-button [value]="i+1"
+                                                        <mat-radio-button [value]="5 - i"
                                                             *ngFor="let rating of ratings, let i = index">
                                                             {{rating}}
                                                         </mat-radio-button>
@@ -54,7 +54,7 @@
                             <div class="row">
                                 <div class="col-md-4 col-sm-6">
                                     <button class="form-button" color="primary" type="submit"
-                                        mat-raised-button>Submit</button>
+                                        mat-raised-button [disabled]="!feedback.valid">Submit</button>
                                     <button class="form-button" color="primary" type="reset"
                                         mat-raised-button>Clear</button>
                                 </div>

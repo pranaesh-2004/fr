@@ -21,5 +21,9 @@ export const NonAdminNavItem = [
     {
         name: 'Give Feedback',
         path: './form'
+    },
+    {
+        name: 'Reset Password',
+        path: 'resetpwd'
     }
 ]

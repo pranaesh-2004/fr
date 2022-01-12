@@ -32,6 +32,17 @@ export class StatusService {
     return this.http.put(url, httpOptions).pipe(catchError(err=>throwError(err)));
   }
 
+  public updateTeacherRatings(url:string, payload: any): Observable<any>{
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    }
+    return this.http.put(url, payload, httpOptions).pipe(
+      catchError(err=> throwError(err))
+    )
+  }
+
   public resetTeachersRating(url: string): Observable<any>{
     const httpOptions = {
       headers: new HttpHeaders({

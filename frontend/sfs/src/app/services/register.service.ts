@@ -38,4 +38,15 @@ export class RegisterService {
 
     return this.http.post(url, payload, httpOptions).pipe(catchError(err=> throwError(err)));
   }
+
+  public changePassword(url:string, payload: any): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    }
+    return this.http.put(url, payload, httpOptions).pipe(
+      catchError(err=> throwError(err))
+    )
+  }
 }

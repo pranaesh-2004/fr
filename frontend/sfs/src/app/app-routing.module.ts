@@ -7,6 +7,7 @@ import { LoginComponent } from './components/login/login/login.component';
 import { MainLayoutComponent } from './components/main-layout/main-layout/main-layout.component';
 import { PageNotFoundComponent } from './components/pagenotfound/page-not-found/page-not-found.component';
 import { RatingComponent } from './components/rating/rating.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { FeedbackStatusComponent } from './components/status/feedback-status/feedback-status.component';
 import { StudentInfoComponent } from './components/student-info/student-info.component';
 import { AuthguardService } from './guards/authguard.service';
@@ -47,6 +48,10 @@ const routes: Routes = [
       {
         path: 'student-info',
         component: StudentInfoComponent
+      },
+      {
+        path: 'resetpwd',
+        component: ResetPasswordComponent
       },
       {
         path: '',

@@ -1,0 +1,23 @@
+@import "../../../../assets/mixins/mixin.scss";
+
+.dialog-wrapper{
+    width: em(256px);
+    height: em(240px);
+
+    .action-btn{
+        height: 35px;
+        width: 35px;
+        padding: 0px;
+    }
+
+    .mat-dialog-actions{
+        position: relative;
+        top: 75px;
+        right: 36%;
+
+        .done-btn{
+            position: absolute;
+            right: 0;
+        }
+    }
+}

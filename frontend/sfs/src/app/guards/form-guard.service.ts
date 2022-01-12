@@ -11,8 +11,10 @@ export class FormGuardService implements CanDeactivate<FeedbackFormComponent> {
 
   public canDeactivate(component: FeedbackFormComponent): boolean {
 
-    if(component.feedback.dirty){
-      return confirm("Confirm exit?")
+    if(component.feedback){
+      if(component.feedback.dirty){
+        return confirm("Confirm exit?")
+      }
     }
     return true;
   }

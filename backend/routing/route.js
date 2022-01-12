@@ -142,7 +142,7 @@ router.put('/score/:id', async (req, res) => {
     try {
         const teacherInfo = await Teacher.findOne(filter);
         teacherInfo.rating = Math.floor((teacherInfo.rating + req.body.rating) / 2);
-        teacherInfo.save();
+        await teacherInfo.save();
         res.send(teacherInfo);
     } catch (err) {
         res.send(err);
@@ -216,6 +216,17 @@ router.get('/student-info/:id', async(req,res)=> {
         res.send(result);
     } catch(err){
         res.send(err);
+    }
+})
+
+router.put('/reset/:id', async(req,res)=> {
+    try {
+        const studentInfo = await Registration.findOne({'rollNo': req.params.id});
+        studentInfo.password = req.body.password;
+        const result = await studentInfo.save();
+        res.send({message: 'Password reset successfull'});
+    } catch(err){
+        res.send({message: 'Error occurred while reset password'});
     }
 })
 

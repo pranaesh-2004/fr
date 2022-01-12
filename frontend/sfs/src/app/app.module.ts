@@ -37,6 +37,9 @@ import { ConfirmationDialogComponent } from './components/confirmation-dialog/co
 import { StudentInfoComponent } from './components/student-info/student-info.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FilterPipe } from './pipes/filter.pipe';
+import { DetailsComponent } from './components/details/details.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { WarningDialogComponent } from './widgets/mat-dialog/warning-dialog/warning-dialog.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +60,10 @@ import { FilterPipe } from './pipes/filter.pipe';
     AddTeachersComponent,
     ConfirmationDialogComponent,
     StudentInfoComponent,
-    FilterPipe
+    FilterPipe,
+    DetailsComponent,
+    ResetPasswordComponent,
+    WarningDialogComponent
   ],
   imports: [
     BrowserModule,

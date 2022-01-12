@@ -30,7 +30,7 @@ export interface PeriodicElement {
   styleUrls: ['./feedback-status.component.scss']
 })
 export class FeedbackStatusComponent implements OnInit {
-  public displayedColumns: string[] = ['rollNo','name','hasGivenFeedback'];
+  public displayedColumns: string[] = ['rollNo','name','hasGivenFeedback', 'refresh'];
   public dataSource: any;
   public searchText: string = '';
   private subs: Array<Subscription> = [];
@@ -39,11 +39,19 @@ export class FeedbackStatusComponent implements OnInit {
   constructor(private status: StatusService, public loader: LoaderService) { }
 
   ngOnInit(): void {
+    this.restoreData();
+  }
+  
+  private restoreData(): void {
     this.loader.showLoader = true;
     this.subs.push(this.status.getStatus(this.url).subscribe(data=>{
       this.loader.showLoader = false;
       this.dataSource = data;
     }));
+  }
+
+  public onRefresh(): void {
+    this.restoreData();
   }
 
   ngOnDestroy(){

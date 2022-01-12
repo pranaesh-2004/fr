@@ -18,7 +18,7 @@ export interface ConfirmationDialogData {
 })
 export class RatingComponent implements OnInit {
 
-  public displayedColumns: string[] = ['teacherId', 'name', 'rating'];
+  public displayedColumns: string[] = ['teacherId', 'name', 'rating', 'refresh'];
   public dataSource: any;
   public data: any = {};
   public searchText: string = '';
@@ -80,6 +80,10 @@ export class RatingComponent implements OnInit {
       duration: 5000,
       panelClass: 'my-custom-snackbar'
     });
+  }
+
+  public onRefresh(): void {
+    this.restoreData();
   }
 
   public ngOnDestroy(){
