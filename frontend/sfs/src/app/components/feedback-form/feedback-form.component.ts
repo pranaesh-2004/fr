@@ -88,7 +88,7 @@ export class FeedbackFormComponent implements OnInit {
     }
   }
 
-  openDialog(): void {
+  public openDialog(): void {
     const dialogRef = this.dialogRef.open(WarningDialogComponent, {
       data: {
         heading: 'Intructions',
