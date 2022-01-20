@@ -16,4 +16,9 @@ Version 2.2:-
 
 ![Edit-student-profile](https://user-images.githubusercontent.com/46490850/144742903-b11eeb66-544b-422b-a675-087a073d641c.JPG)
 
+Version 2.3.3: -
+
+
+![Actions-on-student-record](https://user-images.githubusercontent.com/46490850/150325756-3c79402c-3734-41df-bfbc-4654f8a07cd8.JPG)
+![Reset-all-passwords](https://user-images.githubusercontent.com/46490850/150325766-3a81fff7-f2fc-4407-a6df-f0033137fb42.JPG)
 
