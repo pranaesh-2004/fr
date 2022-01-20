@@ -230,4 +230,53 @@ router.put('/reset/:id', async(req,res)=> {
     }
 })
 
+router.put('/reset/password/all', async(req, res)=> {
+    try{
+        Registration.updateMany(
+            {},
+            {
+                $set: { password: '1234' }
+            },
+            function(err, result) {
+                if(result){
+                    res.send({message: 'Password reset successfull.'});
+                } else {
+                    throw(err);
+                }
+            }
+        )
+    }catch(err){
+        res.send({message: 'Error occured during reset password.'+ JSON.strigify(err)})
+    }
+})
+
+router.delete('/student/:id', async(req, res)=> {
+    try {
+        const id = parseInt(req.params.id);
+        const result = await StudentInfo.find({ rollNo: id });
+        if(result.length){
+            const successDeleteSI = await StudentInfo.findOneAndDelete({ rollNo: id });
+            if(successDeleteSI){
+                const successDeleteRg = await Registration.findOneAndDelete({ rollNo: id });
+                if(successDeleteRg){
+                    const successDeleteSR = await Student.findOneAndDelete({ rollNo: id });
+                    if(successDeleteSR){
+                        res.send({ message : 'Successfully deleted student record.'});
+                    }
+                }
+            }
+        } else{
+            const successDeleteRg = await Registration.findOneAndDelete({ rollNo: id });
+            if(successDeleteRg){
+                const successDeleteSR = await Student.findOneAndDelete({ rollNo: id });
+                if(successDeleteSR){
+                    res.send({ message: 'Successfully deleted student record.' });
+                }
+            }
+        }
+    }catch (err) {
+        res.send({ 'error': 'Error occured while deleting student data' });
+    }
+})
+
 module.exports = router;

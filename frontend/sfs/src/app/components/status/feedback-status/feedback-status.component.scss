@@ -11,7 +11,7 @@
        table{
            width: em(1000px);
            th,td{
-               text-align: center;
+               text-align: left;
            }
 
            th.mat-header-cell:first-of-type, td.mat-cell:first-of-type, td.mat-footer-cell:first-of-type{
@@ -25,6 +25,26 @@
            .circle-cross{
                 color: red;
            }
+
+           .action-btn {
+               background: none;
+               border: none;
+               &:first-child {
+                   border-right: 1px solid #f4f4f4;
+               }
+            }
+
+            button.trash-icon{
+                .mat-icon {
+                    color: red;
+                }
+            }
+
+            button.reset-icon{
+                .mat-icon{
+                    color: green;
+                }
+            }
        } 
     }
 }

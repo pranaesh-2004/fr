@@ -25,6 +25,15 @@
                                 </button>
                             </td>
                         </tr>
+                        <br>
+                        <tr>
+                            <td class="col-10">Reset all passwords</td>
+                            <td class="col-2">
+                                <button class="action-btn" mat-raised-button (click)="resetValues('resetPassword')" color="warn" title="Reset" type="button" [disabled]="isPasswordReset">
+                                    <mat-icon>restore</mat-icon>
+                                </button>
+                            </td>
+                        </tr>
                     </table>
                 </div>
             </div>

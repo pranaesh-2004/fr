@@ -16,6 +16,8 @@ export class ResetDialogComponent implements OnInit {
   private readonly baseUrl: string = 'http://localhost:8000/students/';
   private subs: Array<Subscription> = [];
   private _isFeedbackReset: boolean = false;
+  private _isScoreReset: boolean = false;
+  private _isPasswordReset: boolean = false;
 
   set isFeedbackReset(val: boolean){
     this._isFeedbackReset = val;
@@ -25,7 +27,6 @@ export class ResetDialogComponent implements OnInit {
     return this._isFeedbackReset;
   }
 
-  private _isScoreReset: boolean = false;
 
   set isScoreReset(val: boolean){
     this._isScoreReset = val;
@@ -33,6 +34,14 @@ export class ResetDialogComponent implements OnInit {
 
   get isScoreReset(): boolean{
     return this._isScoreReset;
+  }
+
+  set isPasswordReset(val: boolean){
+    this._isPasswordReset = val;
+  }
+
+  get isPasswordReset(): boolean {
+    return this._isPasswordReset;
   }
 
   constructor(
@@ -57,21 +66,11 @@ export class ResetDialogComponent implements OnInit {
           exhaustMap(() => this.ss.resetStudentsFeedback(this.baseUrl + 'reset/feedback'))
         ).subscribe((data) => {
           if (data) {
-            console.log(data);
+            this.isFeedbackReset = true;
             this.openSnackBar('Reset Students feedback operation successfull', 'close');
-            let sessionInfo = JSON.parse(sessionStorage.getItem('user') || '{}')
-            if(sessionInfo){
-              sessionInfo = {
-                ...sessionInfo,
-                isFeedbackReset: true
-              }
-              this.isFeedbackReset = true;
-            }
-            sessionStorage.setItem('user', JSON.stringify(sessionInfo));
           } else{
             this.openSnackBar('Reset Students feedback operation is not successfull', 'close');
           }
-          let sessionInfo = JSON.parse(sessionStorage.getItem('user') || '{}')
         },
           (err) => {
             this.openSnackBar('Reset feedback operation is not successfull', 'close');
@@ -84,15 +83,7 @@ export class ResetDialogComponent implements OnInit {
         ).subscribe((data) => {
           if (data) {
             this.openSnackBar('Reset Teachers rating operation successfull', 'close');
-            let sessionInfo = JSON.parse(sessionStorage.getItem('user') || '{}')
-            if(sessionInfo){
-              sessionInfo = {
-                ...sessionInfo,
-                isScoreReset: true
-              }
-              sessionStorage.setItem('user', JSON.stringify(sessionInfo));
-              this.isScoreReset = true;
-            }
+            this.isScoreReset = true;
           } else {
             this.openSnackBar('Reset Teachers rating operation is not successfull', 'close');
           }
@@ -102,6 +93,16 @@ export class ResetDialogComponent implements OnInit {
           })
         this.subs.push(sub2);
         break;
+        case 'resetPassword':
+          const sub3 = this.ss.resetAllPasswords(this.baseUrl + '/reset/password/all').subscribe(
+            (data)=> {
+              this.openSnackBar(data['message'], 'close');
+              this.isPasswordReset = true;
+            },
+            err => {
+              this.openSnackBar(err['message'], 'close');
+            }
+          )
     }
     this.loader.showLoader = false;
   }
@@ -115,10 +116,13 @@ export class ResetDialogComponent implements OnInit {
       if(sessionInfo.isFeedbackReset){
         this.isFeedbackReset = true;
       }
+      if(sessionInfo.isPasswordReset){
+        this.isPasswordReset = true;
+      }
     }
   }
 
-  onNoClick() {
+  public onNoClick(): void {
     this.dialogRef.close();
   }
 
@@ -126,7 +130,18 @@ export class ResetDialogComponent implements OnInit {
     this.updateButtonStatus();
   }
 
+  private saveState(): void {
+    const sessionInfo = JSON.parse(sessionStorage.getItem('user') || '{}')
+    if(sessionInfo){
+      sessionInfo.isScoreReset = this.isScoreReset;
+      sessionInfo.isFeedbackReset = this.isFeedbackReset;
+      sessionInfo.isPasswordReset = this.isPasswordReset;
+      sessionStorage.setItem('user', JSON.stringify(sessionInfo));
+    }
+  }
+
   ngOnDestroy(){
+    this.saveState();
     this.subs.forEach(sub=> sub.unsubscribe());
   }
 

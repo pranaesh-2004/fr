@@ -49,4 +49,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
         padding: em(2px) em(30px);
         font-family: Arial, Helvetica, sans-serif;
     }
+    .clear-text{
+        position: absolute;
+        border: none;
+        background: none;
+        top: em(3px);
+        left: 87%;
+    }
 }

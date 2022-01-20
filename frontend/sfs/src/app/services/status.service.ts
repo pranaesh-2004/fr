@@ -70,5 +70,24 @@ export class StatusService {
     return this.http.delete(url, httpOptions).pipe(catchError(err=> throwError(err)))
   }
 
+  public resetAllPasswords(url: string): Observable<any>{
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    }
+
+    return this.http.put(url, httpOptions).pipe(catchError(err=>throwError(err)));
+  }
+
+  public deleteStudentRecord(url:string): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    }
+    return this.http.delete(url, httpOptions).pipe(catchError(err=> throwError(err)));
+  }
+
   constructor(private http: HttpClient) { }
 }

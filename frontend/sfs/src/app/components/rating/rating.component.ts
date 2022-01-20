@@ -86,6 +86,11 @@ export class RatingComponent implements OnInit {
     this.restoreData();
   }
 
+  public clearText(input: any){
+    input.value = '';
+    this.searchText = '';
+  }
+
   public ngOnDestroy(){
     this.subs.forEach(sub=> sub.unsubscribe());
   }

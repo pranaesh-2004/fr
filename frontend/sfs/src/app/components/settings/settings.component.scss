@@ -3,7 +3,8 @@
 .setting-wrapper{
     position: fixed;
     top: em(9px);
-    right: em(200px);    
+    right: em(200px);   
+    z-index: 100; 
 
     button{
         background-color: transparent;
