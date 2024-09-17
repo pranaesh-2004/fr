@@ -176,14 +176,35 @@ router.put('/reset/feedback', async (req, res) => {
                 if (err) {
                     throw err;
                 } else {
-                    res.send(result);
+                    res.send({message: "Student's feedback status reset successfully."});
                 }
             }
         );
     } catch (err) {
-        res.send(err);
+        res.send({message: 'Error occurred while reset feedback status.'});
     }
 });
+
+router.put('/reset/feedback/:id', async(req, res)=> {
+    try{
+        Student.findOneAndUpdate({
+            rollNo: req.params.id
+        },
+        {
+            $set: {
+                hasGivenFeedback: false
+            }
+        },function(err,result){
+            if(err){
+                throw(err)
+            } else{
+                res.send({message: "Student's feedback status reset successfully."})
+            }
+        })
+    }catch(err){
+        res.send({message: 'Error occurred during reset feedback'})
+    }
+})
 
 router.put('/student-info', async(req,res)=> {
     try {

@@ -40,6 +40,8 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { DetailsComponent } from './components/details/details.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { WarningDialogComponent } from './widgets/mat-dialog/warning-dialog/warning-dialog.component';
+import { BarGraphComponent } from './components/bar-graph/bar-graph.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @NgModule({
   declarations: [
@@ -63,7 +65,8 @@ import { WarningDialogComponent } from './widgets/mat-dialog/warning-dialog/warn
     FilterPipe,
     DetailsComponent,
     ResetPasswordComponent,
-    WarningDialogComponent
+    WarningDialogComponent,
+    BarGraphComponent
   ],
   imports: [
     BrowserModule,

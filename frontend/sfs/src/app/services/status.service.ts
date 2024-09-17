@@ -61,6 +61,15 @@ export class StatusService {
     return this.http.put(url, httpOptions).pipe(catchError(err=> throwError(err)))
   }
 
+  public resetStudentsFeedbackStatus(url: string): Observable<any>{
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    }
+    return this.http.put(url, httpOptions).pipe(catchError(err=> throwError(err)))
+  }
+
   public deleteTeacher(url: string): Observable<any>{
     const httpOptions = {
       headers: new HttpHeaders({

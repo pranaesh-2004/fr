@@ -110,12 +110,25 @@ export class FeedbackStatusComponent implements OnInit {
         } else {
           this.loader.showLoader = false;
         }
+    }}));
+  }
+
+  public resetStudentFeedback(rollNo: number): void {
+    const sub = this.status.resetStudentsFeedbackStatus(this.url+ `/reset/feedback/${rollNo}`).subscribe(
+      data=> {
+        this.openSnackBar(data['message'], 'close');
+        this.onRefresh();
+      },
+      err=> {
+        this.openSnackBar(err['message'], 'close');
       }
-  }));
-}
+    )
+
+    this.subs.push(sub);
+  }
 
   public deleteStudent(rollNo: number): void {
-    this.openDialog(rollNo);
+    this.openDialog(rollNo)
   }
 
 }

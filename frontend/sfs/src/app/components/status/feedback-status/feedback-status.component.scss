@@ -18,6 +18,10 @@
                 width: em(180px);
            }
 
+           .status{
+            padding-left: 30px;
+           }
+
            .circle-check{
                color: green;
            }
@@ -29,20 +33,33 @@
            .action-btn {
                background: none;
                border: none;
-               &:first-child {
-                   border-right: 1px solid #f4f4f4;
+               border-right: 1px solid #f4f4f4;
+               &:last-child {
+                   border-right: none;
                }
             }
 
-            button.trash-icon{
-                .mat-icon {
-                    color: red;
+            button {
+                &:disabled{
+                    cursor: not-allowed;
+                    opacity: 50%;
                 }
-            }
+                &.trash-icon{
+                    .mat-icon{
+                        color: red;
+                    }
+                }
 
-            button.reset-icon{
-                .mat-icon{
-                    color: green;
+                &.reset-icon{
+                    .mat-icon{
+                        color: green;
+                    }
+                }
+
+                &.revert-icon{
+                    .mat-icon{
+                        color: blue;
+                    }
                 }
             }
        } 
