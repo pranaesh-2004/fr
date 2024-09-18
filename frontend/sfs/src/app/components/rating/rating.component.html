@@ -54,6 +54,6 @@
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
     </div>
-
+    <bar-chart [teachersList]="dataSource"></bar-chart>
     <mat-spinner *ngIf="loader.showLoader"></mat-spinner>
 </div>

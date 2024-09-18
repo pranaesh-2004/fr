@@ -1,5 +1,22 @@
-{"_id":{"$oid":"61547e37aa58094d92a2fc0e"},"teacherId":{"$numberInt":"6"},"name":"Dorian Schroeder","rating":{"$numberInt":"3"},"__v":{"$numberInt":"0"}}
-{"_id":{"$oid":"6154a81e64d7b503c75feb62"},"teacherId":{"$numberInt":"2"},"name":"Rehaan Hastings","rating":{"$numberInt":"2"},"__v":{"$numberInt":"0"}}
-{"_id":{"$oid":"6154a93e64d7b503c75feb66"},"teacherId":{"$numberInt":"3"},"name":"Rome Simons","rating":{"$numberInt":"4"},"__v":{"$numberInt":"0"}}
-{"_id":{"$oid":"6154a96f64d7b503c75feb68"},"teacherId":{"$numberInt":"5"},"name":"Bret Haynes","rating":{"$numberInt":"3"},"__v":{"$numberInt":"0"}}
-{"_id":{"$oid":"6154a98e64d7b503c75feb6c"},"teacherId":{"$numberInt":"7"},"name":"Simeon Guevara","rating":{"$numberInt":"1"},"__v":{"$numberInt":"0"}}
+[
+  { "teacherId": 1, "name": "Ramu Sharma", "rating": 4 },
+  { "teacherId": 2, "name": "Radha Gupta", "rating": 4 },
+  { "teacherId": 3, "name": "Shyam Patel", "rating": 5 },
+  { "teacherId": 4, "name": "Geeta Singh", "rating": 4 },
+  { "teacherId": 5, "name": "Mohan Verma", "rating": 5 },
+  { "teacherId": 6, "name": "Lakshmi Rao", "rating": 4 },
+  { "teacherId": 7, "name": "Rajeev Kumar", "rating": 4 },
+  { "teacherId": 8, "name": "Sunita Mehta", "rating": 5 },
+  { "teacherId": 9, "name": "Kavita Nair", "rating": 4 },
+  { "teacherId": 10, "name": "Anjali Sharma", "rating": 4 },
+  { "teacherId": 11, "name": "Rakesh Mishra", "rating": 4 },
+  { "teacherId": 12, "name": "Sangeeta Joshi", "rating": 4 },
+  { "teacherId": 13, "name": "Pradeep Reddy", "rating": 5 },
+  { "teacherId": 14, "name": "Meena Menon", "rating": 3 },
+  { "teacherId": 15, "name": "Mahesh Sharma", "rating": 5 },
+  { "teacherId": 16, "name": "Rekha Gupta", "rating": 4 },
+  { "teacherId": 17, "name": "Vivek Patel", "rating": 4 },
+  { "teacherId": 18, "name": "Nirmala Singh", "rating": 5 },
+  { "teacherId": 19, "name": "Sanjay Verma", "rating": 4 },
+  { "teacherId": 20, "name": "Urmila Rao", "rating": 4 }
+]

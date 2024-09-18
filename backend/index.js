@@ -15,6 +15,13 @@ db.once('open', function () {
     console.log('Connected Successfully');
 });
 
+const baseUrl = 'mongodb://localhost:27017/Students';
+mongoose.connect(baseUrl, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+});
+
+
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 

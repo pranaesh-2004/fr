@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Subscription } from 'rxjs';
@@ -19,12 +19,13 @@ export interface ConfirmationDialogData {
 export class RatingComponent implements OnInit {
 
   public displayedColumns: string[] = ['teacherId', 'name', 'rating', 'refresh'];
-  public dataSource: any;
+  public dataSource: any = [];
   public data: any = {};
   public searchText: string = '';
   private subs: Array<Subscription> = [];
   private readonly teachersInfoEndPoint: string = 'http://localhost:8000/students/teachers';
   private readonly deleteTeacherEndPoint: string = 'http://localhost:8000/students/teacher/';
+  @Output() parentArrayUpdated = new EventEmitter<any[]>();
   constructor(private ss: StatusService, public loader: LoaderService, private _snackBar: MatSnackBar, public dialog: MatDialog) { }
 
   ngOnInit(): void {

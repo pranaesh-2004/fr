@@ -1,10 +1,4 @@
 var moongoose = require('mongoose');
-const baseUrl = 'mongodb://localhost:27027/Students';
-
-moongoose.connect(baseUrl, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-});
 
 const teacherSchema = new moongoose.Schema({
     teacherId: {
