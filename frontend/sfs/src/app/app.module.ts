@@ -22,6 +22,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { RegisterService } from './services/register.service';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSelectModule } from '@angular/material/select';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './components/header/header/header.component';
 import { FeedbackStatusComponent } from './components/status/feedback-status/feedback-status.component';
@@ -83,6 +84,7 @@ import { BarGraphComponent } from './components/bar-graph/bar-graph.component';
     MatRadioModule,
     MatProgressSpinnerModule,
     MatSelectModule,
+    MatButtonToggleModule,
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule

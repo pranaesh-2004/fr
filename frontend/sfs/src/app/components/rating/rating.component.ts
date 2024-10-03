@@ -19,6 +19,7 @@ export interface ConfirmationDialogData {
 export class RatingComponent implements OnInit {
 
   public displayedColumns: string[] = ['teacherId', 'name', 'rating', 'refresh'];
+  public selectedView: string = 'tableView';
   public dataSource: any = [];
   public data: any = {};
   public searchText: string = '';
@@ -90,6 +91,10 @@ export class RatingComponent implements OnInit {
   public clearText(input: any){
     input.value = '';
     this.searchText = '';
+  }
+
+  public isSelectedViewLoaded(selectedView: string) {
+    return this.selectedView === selectedView;
   }
 
   public ngOnDestroy(){

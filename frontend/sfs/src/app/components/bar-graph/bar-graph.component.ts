@@ -21,9 +21,6 @@ export class BarGraphComponent implements OnInit {
 
   ngOnInit(): void {
     this.createSvg();
-  }
-
-  ngOnChanges(changes: SimpleChanges) {
     this.drawBars(this.teachersList);
   }
 
@@ -31,45 +28,43 @@ export class BarGraphComponent implements OnInit {
     this.svg = d3.select(this.elRef.nativeElement)
       .select("figure#bar")
       .append("svg")
-      .attr("width", this.width + (this.margin * 2))
-      .attr("height", this.height + (this.margin * 2))
+      .attr("width", this.width + (this.margin * 3))
+      .attr("height", this.height + (this.margin * 3))
       .append("g")
       .attr("transform", "translate(" + this.margin + "," + this.margin + ")");
   }
 
   private drawBars(data: any[]): void {
-    // Create the X-axis band scale
-    if (data && data.length) {
-      const x = d3.scaleBand()
-        .range([0, this.width])
-        .domain(data.map(d => d.name))
-        .padding(0.2);
+    const x = d3.scaleBand()
+      .range([0, this.width])
+      .domain(data.map(d => d.name))
+      .padding(0.5);
 
-      this.svg.append("g")
-        .attr("transform", "translate(0," + this.height + ")")
-        .call(d3.axisBottom(x))
-        .selectAll("text")
-        .attr("transform", "translate(-10,0)rotate(-45)")
-        .style("text-anchor", "end");
+    this.svg.append("g")
+      .attr("transform", "translate(0," + this.height + ")")
+      .call(d3.axisBottom(x))
+      .selectAll("text")
+      .attr("transform", "translate(-10,0)rotate(-45)")
+      .style("text-anchor", "end");
 
-      // Create the Y-axis scale
-      const y = d3.scaleLinear()
-        .domain([0, 5])
-        .range([this.height, 0]);
+    // Create the Y-axis band scale
+    const y = d3.scaleLinear()
+      .domain([0, 5.0])
+      .range([this.height, 0]);
 
-      this.svg.append("g")
-        .call(d3.axisLeft(y));
+    // Draw the Y-axis on the DOM
+    this.svg.append("g")
+      .call(d3.axisLeft(y));
 
-      // Create the bars
-      this.svg.selectAll("bars")
-        .data(data)
-        .enter()
-        .append("rect")
-        .attr("x", (d: { name: any; }) => x(d.name))
-        .attr("y", (d: { rating: any; }) => y(d.rating))
-        .attr("width", x.bandwidth())
-        .attr("height", (d: { value: any; }) => this.height - y(d.value))
-        .attr("fill", "#d04a35");
-    }
+    // Create and fill the bars
+    this.svg.selectAll("bars")
+      .data(data)
+      .enter()
+      .append("rect")
+      .attr("x", (d: any) => x(d.name))
+      .attr("y", (d: any) => y(d.rating))
+      .attr("width", x.bandwidth())
+      .attr("height", (d: any) => this.height - y(d.rating))
+      .attr("fill", "#d04a35");
   }
 }
