@@ -12,6 +12,8 @@ import { FeedbackStatusComponent } from './components/status/feedback-status/fee
 import { StudentInfoComponent } from './components/student-info/student-info.component';
 import { AuthguardService } from './guards/authguard.service';
 import { FormGuardService } from './guards/form-guard.service';
+import { StudentRouteGuardService } from './guards/student-route-guard.service';
+import { AdminRouteGuardService } from './guards/admin-route-guard.service';
 
 const routes: Routes = [
   {
@@ -31,27 +33,33 @@ const routes: Routes = [
       {
         path: 'students',
         component: FeedbackStatusComponent,
+        canActivate: [StudentRouteGuardService]
       },
       {
         path: 'form',
         component: FeedbackFormComponent,
-        canDeactivate: [FormGuardService]
+        canActivate: [StudentRouteGuardService],
+        canDeactivate: [FormGuardService],
       },
       {
         path: 'rating',
-        component: RatingComponent
+        component: RatingComponent,
+        canActivate: [AdminRouteGuardService]
       },
       {
         path: 'addTeachers',
-        component: AddTeachersComponent
+        component: AddTeachersComponent,
+        canActivate: [AdminRouteGuardService]
       },
       {
         path: 'student-info',
-        component: StudentInfoComponent
+        component: StudentInfoComponent,
+        canActivate: [StudentRouteGuardService]
       },
       {
         path: 'resetpwd',
-        component: ResetPasswordComponent
+        component: ResetPasswordComponent,
+        canActivate: [StudentRouteGuardService]
       },
       {
         path: '',

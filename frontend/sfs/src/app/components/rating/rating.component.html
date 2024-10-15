@@ -1,9 +1,9 @@
 <div class="rating-content-wrapper">
     <mat-button-toggle-group [(ngModel)]="selectedView" appearance="standard">
-        <mat-button-toggle value="tableView" [checked]="isSelectedViewLoaded('tableView')">
+        <mat-button-toggle [title]="'Tabular View'" value="tableView" [checked]="isSelectedViewLoaded('tableView')">
             <mat-icon> table_chart </mat-icon>
         </mat-button-toggle>
-        <mat-button-toggle value="graphView" [checked]="isSelectedViewLoaded('graphView')">
+        <mat-button-toggle [title]="'Graphical View'" value="graphView" [checked]="isSelectedViewLoaded('graphView')">
             <mat-icon> bar_chart </mat-icon>
         </mat-button-toggle>
     </mat-button-toggle-group>

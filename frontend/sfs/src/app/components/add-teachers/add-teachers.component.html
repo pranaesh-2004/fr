@@ -2,7 +2,7 @@
     <div class="content-wrapper">
         <div class="action-button-wrapper">
             <button class="add-teacher-btn" type="button" *ngIf="!isFormVisible" (click)='toggleFormVisibility()' mat-raised-button color="accent">Add Teacher</button>
-            <button class="delete-form-grp" *ngIf="isFormVisible" type="button" (click)='toggleFormVisibility()'><mat-icon>delete</mat-icon></button>
+            <button class="delete-form-grp" *ngIf="isFormVisible" type="button" (click)='toggleFormVisibility()'><mat-icon>arrow_back</mat-icon></button>
         </div>
         <div class="col-md-12 col-sm-12">
             <div class="form-wrapper" *ngIf="isFormVisible">
