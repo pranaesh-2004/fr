@@ -31,7 +31,6 @@ export class LoginComponent implements OnInit {
   public pwdType: string = 'password';
   @ViewChild('formData') formData: any;
 
-
   private readonly baseUrl: string = 'http://localhost:8000/students/';
   private subs: Array<Subscription> = [];
   constructor(
@@ -105,24 +104,18 @@ export class LoginComponent implements OnInit {
     if (this.isAdminUser) {
       if (this.validateForm() && this.formData.form.status === 'VALID') {
         this.loader.showLoader = true;
-        this.subs.push(this.rs.authenticate(adminLoginUrl, payload).subscribe(res => {
-          if (res.registered) {
-            if (this.adminInfo.name) {
-              this.loader.showLoader = false;
-              sessionStorage.setItem('user', JSON.stringify({'name': this.adminInfo.name, 'isAdmin': true}));
-              this.openSnackBar("Welcome " + this.adminInfo.name + "!!", "close");
-              this.clearForm();
-              this.router.navigate(["./home"]);
-            }
-          } else {
-            this.loader.showLoader = false;
-            this.openSnackBar("You have entered invalid login credentials", "close");
-          }
-        },
-        (err)=>{
+        
+        // Admin login logic with hardcoded credentials
+        if (this.adminInfo.name === 'admin' && this.adminInfo.password === 'pranaesh1234') {
           this.loader.showLoader = false;
-          this.openSnackBar("Error occurred while authentication", 'close');
-        }))
+          sessionStorage.setItem('user', JSON.stringify({ 'name': this.adminInfo.name, 'isAdmin': true }));
+          this.openSnackBar("Welcome " + this.adminInfo.name + "!!", "close");
+          this.clearForm();
+          this.router.navigate(["./home"]);
+        } else {
+          this.loader.showLoader = false;
+          this.openSnackBar("You have entered invalid login credentials", "close");
+        }
       } else {
         this.loader.showLoader = false;
         this.openSnackBar("Please fill valid details!!", "close");
@@ -134,7 +127,7 @@ export class LoginComponent implements OnInit {
           if (res.registered) {
             if (this.studentInfo.name) {
               this.loader.showLoader = false;
-              sessionStorage.setItem('user', JSON.stringify({'name':this.studentInfo.name, 'rollNo': this.studentInfo.rollNo, 'isAdmin': this.isAdminUser}));
+              sessionStorage.setItem('user', JSON.stringify({ 'name': this.studentInfo.name, 'rollNo': this.studentInfo.rollNo, 'isAdmin': this.isAdminUser }));
               this.openSnackBar("Welcome " + this.studentInfo.name + "!!", "close");
               this.clearForm();
               this.router.navigate(["./home"]);
@@ -144,7 +137,7 @@ export class LoginComponent implements OnInit {
             this.openSnackBar("You have entered invalid login credentials", "close");
           }
         },
-        (err)=>{
+        (err) => {
           this.loader.showLoader = false;
           this.openSnackBar("Error occurred while authentication", 'close');
         }))
@@ -158,12 +151,12 @@ export class LoginComponent implements OnInit {
   private validateForm(): boolean {
     if (this.isAdminUser) {
       if (this.adminInfo && this.adminInfo.name !== '' && this.adminInfo.password != '') {
-        return true
+        return true;
       }
       return false;
     } else {
       if (this.studentInfo && this.studentInfo.name !== '' && this.studentInfo.password != '' && this.studentInfo.rollNo > 0) {
-        return true
+        return true;
       }
       return false;
     }
@@ -179,7 +172,7 @@ export class LoginComponent implements OnInit {
   }
 
   public togglePwdType() {
-    this.pwdType = this.pwdType === 'password'? 'text' : 'password';
+    this.pwdType = this.pwdType === 'password' ? 'text' : 'password';
   }
 
   ngOnInit(): void {
@@ -189,4 +182,3 @@ export class LoginComponent implements OnInit {
     this.subs.forEach(sub => sub.unsubscribe());
   }
 }
-
